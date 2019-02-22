@@ -40,7 +40,7 @@ def hbnb_filters(the_id=None):
                            amens=amens,
                            places=places,
                            users=users,
-                           cache_id=uuid4())
+                           cache_id=str(uuid4()))
 
 if __name__ == "__main__":
     """
