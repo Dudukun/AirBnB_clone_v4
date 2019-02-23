@@ -12,3 +12,11 @@ header {
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
 }
+
+.available {
+    background-color: #ff545f;
+}
+
+header div {
+    background-color: #CCCCCC;
+}
