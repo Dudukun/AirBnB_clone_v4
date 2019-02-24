@@ -1,6 +1,6 @@
-let articles = function(data) {
+let articles = function (data) {
   $('article').remove();
-  $.each(data, function(k, v) {
+  $.each(data, function (k, v) {
     $(`<article>
       <div class="title">
       <h2>${v.name}</h2>
@@ -44,15 +44,15 @@ $(document).ready(function () {
   $('.locations input[type="checkbox"]').click(function () {
     if ($(this).is(':checked')) {
       if ($(this).parent().attr('class') === 'statename') {
-	stDict[$(this).attr('data-id')] = $(this).attr('data-name');
+        stDict[$(this).attr('data-id')] = $(this).attr('data-name');
       } else {
-	ctDict[$(this).attr('data-id')] = $(this).attr('data-name');
+        ctDict[$(this).attr('data-id')] = $(this).attr('data-name');
       }
     } else if ($(this).is(':not(:checked)')) {
       if ($(this).parent().attr('class') === 'statename') {
-	delete stDict[$(this).attr('data-id')];
+        delete stDict[$(this).attr('data-id')];
       } else {
-	delete ctDict[$(this).attr('data-id')];
+        delete ctDict[$(this).attr('data-id')];
       }
     }
     let alist = [];
@@ -89,11 +89,9 @@ $(document).ready(function () {
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
-      data: JSON.stringify({"amenities": Object.keys(amDict),
-			    "states": Object.keys(stDict),
-			    "cities": Object.keys(ctDict)}),
-      success: function(data) {
-	articles(data);
+      data: JSON.stringify({ 'amenities': Object.keys(amDict), 'states': Object.keys(stDict), 'cities': Object.keys(ctDict) }),
+      success: function (data) {
+        articles(data);
       }
     });
   });

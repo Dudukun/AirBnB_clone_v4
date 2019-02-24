@@ -1,6 +1,6 @@
-let articles = function(data) {
+let articles = function (data) {
   $('article').remove();
-  $.each(data, function(k, v) {
+  $.each(data, function (k, v) {
     $(`<article>
       <div class="title">
       <h2>${v.name}</h2>
@@ -63,9 +63,9 @@ $(document).ready(function () {
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
-      data: JSON.stringify({"amenities": Object.keys(idDict)}),
-      success: function(data) {
-	articles(data);
+      data: JSON.stringify({ 'amenities': Object.keys(idDict) }),
+      success: function (data) {
+        articles(data);
       }
     });
   });

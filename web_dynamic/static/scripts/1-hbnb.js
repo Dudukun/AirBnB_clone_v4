@@ -1,17 +1,16 @@
 $(document).ready(function () {
-  $(".amenities UL LI INPUT").css("margin-right", "10px");
-  let id_dict = {}
+  $('.amenities UL LI INPUT').css('margin-right', '10px');
+  let idDict = {};
   $('input[type="checkbox"]').click(function () {
-
-    if ($(this).is(":checked")) {
-      id_dict[$(this).attr('data-id')] = $(this).attr('data-name');
-    } else if ($(this).is(":not(:checked)")) {
-      delete id_dict[$(this).attr('data-id')];
+    if ($(this).is(':checked')) {
+      idDict[$(this).attr('data-id')] = $(this).attr('data-name');
+    } else if ($(this).is(':not(:checked)')) {
+      delete idDict[$(this).attr('data-id')];
     }
     let alist = [];
-    for (let k in id_dict) {
-      alist.push(id_dict[k]);
+    for (let k in idDict) {
+      alist.push(idDict[k]);
     }
-    $('.amenities h4').text(alist.join(", "));
+    $('.amenities h4').text(alist.join(', '));
   });
 });
