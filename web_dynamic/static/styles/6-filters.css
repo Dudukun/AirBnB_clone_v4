@@ -119,3 +119,8 @@
 	}
 
 }
+
+.statename {
+    display: flex;
+    align-items: baseline;
+}
