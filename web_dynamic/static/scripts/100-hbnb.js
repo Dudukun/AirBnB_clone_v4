@@ -1,5 +1,6 @@
 let articles = function (data) {
   $('article').remove();
+  data = data.sort((a, b) => (a.name > b.name) ? 1 : -1);
   $.each(data, function (k, v) {
     $(`<article>
       <div class="title">
@@ -36,6 +37,7 @@ let articles = function (data) {
 };
 
 $(document).ready(function () {
+  $('.places h1').css('display', 'none');
   $('.amenities UL LI INPUT').css('margin-right', '10px');
   $('.locations input').css('margin-right', '10px');
   let amDict = {};
@@ -91,6 +93,7 @@ $(document).ready(function () {
       contentType: 'application/json',
       data: JSON.stringify({ 'amenities': Object.keys(amDict), 'states': Object.keys(stDict), 'cities': Object.keys(ctDict) }),
       success: function (data) {
+	$('.places h1').css('display', 'flex');
         articles(data);
       }
     });
