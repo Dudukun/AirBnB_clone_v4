@@ -210,6 +210,63 @@ create: create [ARG] [PARAM 1] [PARAM 2] ...
 Uses [Travis-CI](https://travis-ci.org/) to run all tests on all commits to the
 github repo
 
+# AirBnB Clone: Phase # 4
+
+<img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" />
+
+: Web dynamic
+
+## Description of features added/updated and what we accomplished:
+* make requests to our own API from the front using Ajax
+* modify multiple HTML element styles with mix of Javascript and Jquery
+* get and update multiple HTML element contents from our database
+* manipulate the DOM for better dynamic experience
+* use Jquery Ajax to make GET and POST requests to our backend
+* listen/bind to DOM events
+* listen/bind to user events
+* make sure that HTML will not reload for each action: DOM manipulation, update values, fetch d\
+ata from the front
+
+## Environment
+* All Javascript/Jquery scripts is fully compliant to `semistandard` with the flag `--global $`:
+  `semistandard *.js --global $`
+* Jquery is version 3.x
+* Interpreted and debugged on Chrome(version 57.0)
+
+## Primary Folder
+* Added `web_dynamic` directory which includes all Javascript files under `scripts` directory and Jinja HTML templates under `templates` directory
+
+## Files
+---
+File|Task
+---|---
+0-hbnb.py, templates/0-hbnb.html | Script that starts our Flask web application
+1-hbnb.py, templates/1-hbnb.html, static/scripts/1-hbnb.js | Update filters section with added checkbox to listen for input and convert static to dynamic contents when the DOM is loaded
+api/v1/app.py, web_dynamic/2-hbnb.py, web_dynamic/templates/2-hbnb.html, web_dynamic/static/styles/3-header.css, web_dynamic/static/scripts/2-hbnb.js | Make requests to HBNB API to get status, update API entry point by changing routes with our app.py, create new HTML template with dynamic contents, CSS elements with Jquery 
+web_dynamic/3-hbnb.py, web_dynamic/templates/3-hbnb.html, web_dynamic/static/scripts/3-hbnb.js | Created new template based on previous one and updated for new features to fetch all places through Ajax requests to our backend, styled with Jquery Javascript script   
+web_dynamic/4-hbnb.py, web_dynamic/templates/4-hbnb.html, web_dynamic/static/scripts/4-hbnb.js | Updated route to new Jinja template and added new `BUTTON` tag for when click, send a `POST` requests to places_search related to lists of Amenities checked
+web_dynamic/100-hbnb.py, web_dynamic/templates/100-hbnb.html, web_dynamic/static/scripts/100-hbnb.js | updated template with checkbox next to each state and city so that when checked, Ajax will send `POST` request to display all places related to checked items
+
+## To test please:
+```
+# expose port 5000 to port 5001 in your vm's config file: forward_port, guest: 5000, host: 5001
+```
+It’s important to test our AirBnB API with the port 5001 and have the latest browser version
+* `Follow instructions above to load data into MySQL databasesd
+* Run this command to start front side Flask web application
+```
+HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_dynamic.0-hbnb
+```
+* Run this command to start back end engine
+```
+HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_PORT=5001 python3 -m api.v1.app
+```
+* Start your `Chrome` browser and input url below and press enter:
+```
+http://0.0.0.0:5001/api/v1/status/
+```
+* Hover mouse over `States` or `Amenities`, check any checkbox and press `Search`
+
 ## Authors
 
 * MJ Johnson, [@mj31508](https://github.com/mj31508)
